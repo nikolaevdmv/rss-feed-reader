@@ -11,17 +11,16 @@ public class Application {
     public static void main(String[] args) {
 
         FeedManager feedManager = new FeedManager();
-
         AddedFeedView addedFeedView = new AddedFeedView(feedManager);
-
         PostListView postListView = new PostListView();
         PostDetailView postDetailView = new PostDetailView();
+        RightSplitView rightSplitView = new RightSplitView(postListView, postDetailView);
+        MainSplitView mainSplitView = new MainSplitView(addedFeedView, rightSplitView);
 
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame();
 
-//            ReaderMainView mainView = new ReaderMainView(addedFeedView, postListView, new MainViewRightSplitView(postListView, postDetailView));
-            ReaderMainView mainView = new ReaderMainView();
+            ReaderMainView mainView = new ReaderMainView(mainSplitView);
             frame.add(mainView.getView());
 
             frame.setSize(new Dimension(1000, 800));

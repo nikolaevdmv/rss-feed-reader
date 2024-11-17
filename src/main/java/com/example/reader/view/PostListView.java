@@ -10,8 +10,8 @@ import java.util.function.Consumer;
 
 public class PostListView {
 
-    private JList<Post> postList;
-    private JScrollPane jScrollPane1;
+    private final JList<Post> postList;
+    private final JScrollPane jScrollPane1;
 
     public PostListView() {
         this.postList = new JList<>();

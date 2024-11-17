@@ -13,7 +13,7 @@ import java.util.function.Consumer;
 public class AddedFeedView {
 
     private final JList<FeedEntity> feedList;
-    private final Component component;
+    private final Component view;
 
     private final List<FeedEntity> existedFeed;
 
@@ -21,8 +21,8 @@ public class AddedFeedView {
         this.existedFeed = feedManager.getExistedFeed();
 
         this.feedList = new JList<>(existedFeed.toArray(FeedEntity[]::new));
-        this.component = new JScrollPane(feedList);
-        component.setMinimumSize(new Dimension(250, 0));
+        this.view = new JScrollPane(feedList);
+        this.view.setMinimumSize(new Dimension(250, 0));
 
 
         DefaultListCellRenderer defaultListCellRenderer = new DefaultListCellRenderer();
@@ -33,8 +33,8 @@ public class AddedFeedView {
         });
     }
 
-    public Component getComponent() {
-        return component;
+    public Component getView() {
+        return view;
     }
 
     // https://stackoverflow.com/questions/4344682/double-click-event-on-jlist-element
